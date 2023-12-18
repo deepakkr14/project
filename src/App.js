@@ -17,7 +17,7 @@ const data = [
     location: "Mumbai",
   },
 ];
-function App() {
+const App = () => {
   return (
     <div className="expenses-list">
       {data.map((props) => (
@@ -34,27 +34,6 @@ function App() {
       ))}
     </div>
   );
-  // return (
-  //   <div>
-  //     <h2>Expenses</h2>
-  //     <table>
-  //       <thead>
-  //         <tr>
-  //           <th>Title</th>
-  //           <th>Amount</th>
-  //           <th>Location</th>
-  //         </tr>
-  //       </thead>
-  //     </table>
-  //     {data.map((expense) => (
-  //       <ExpenseItem
-  //         title={expense.title}
-  //         amount={expense.amount}
-  //         location={expense.location}
-  //       />
-  //     ))}
-  //   </div>
-  // );
-}
+};
 
 export default App;
