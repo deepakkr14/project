@@ -1,0 +1,19 @@
+/* ExpensesList.css */
+.expenses-list {
+    margin-top: 20px;
+    /* Add more styles as needed */
+  }
+  
+  .expense-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    /* Add more styles as needed */
+  }
+  
+  .expense-item-content {
+    display: flex;
+    align-items: center;
+    /* Adjust styles for spacing, alignment, etc. */
+  }
+  
