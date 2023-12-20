@@ -1,8 +1,7 @@
 // import logo from './logo.svg';
 import "./App.css";
-import "./component/Expensecss.css";
-import ExpenseDetails from "./component/ExpenseDetails.js";
-import ExpenseDate from "./component/ExpenseDate.js";
+import "./component/Expenses/Expensecss.css";
+import ExpenseDetails from "./component/Expenses/ExpenseDetails";
 const data = [
   {
     date: new Date(2023, 12, 15),
@@ -18,18 +17,20 @@ const data = [
   },
 ];
 const App = () => {
+  const  deleteEx=()=>{
+   
+  }
   return (
     <div className="expenses-list">
       {data.map((props) => (
         <div className="expense-item">
-          <div className="expense-item-content">
-            <ExpenseDate date={props.date} />
             <ExpenseDetails
               amount={props.amount}
               location={props.location}
               title={props.title}
+              date={props.date}
             />
-          </div>
+      <div> <button onClick={deleteEx}>delete</button></div>
         </div>
       ))}
     </div>

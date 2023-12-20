@@ -1,4 +1,4 @@
-import '/card.css'
+import './cards.css'
 const card=(props)=>{
     const classes='card '+props.className
 return <div className={classes}>{props.children}</div>
