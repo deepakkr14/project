@@ -17,9 +17,7 @@ const data = [
   },
 ];
 const App = () => {
-  const  deleteEx=()=>{
-   
-  }
+ 
   return (
     <div className="expenses-list">
       {data.map((props) => (
@@ -30,7 +28,7 @@ const App = () => {
               title={props.title}
               date={props.date}
             />
-      <div> <button onClick={deleteEx}>delete</button></div>
+      
         </div>
       ))}
     </div>
