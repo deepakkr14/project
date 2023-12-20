@@ -2,6 +2,7 @@
 import "./App.css";
 import "./component/Expenses/Expensecss.css";
 import ExpenseDetails from "./component/Expenses/ExpenseDetails";
+import Form from './component/Expenses/Form'
 const data = [
   {
     date: new Date(2023, 12, 15),
@@ -31,6 +32,7 @@ const App = () => {
       
         </div>
       ))}
+      <Form/>
     </div>
   );
 };
