@@ -18,7 +18,11 @@ const data = [
   },
 ];
 const App = () => {
- 
+  const addExpenseHandler = expense => {
+    console.log('In App.js');
+    console.log(expense);
+    data.push(expense)
+  };
   return (
     <div className="expenses-list">
       {data.map((props) => (
@@ -28,11 +32,12 @@ const App = () => {
               location={props.location}
               title={props.title}
               date={props.date}
+              
             />
       
         </div>
       ))}
-      <Form/>
+      <Form onaddExpense={addExpenseHandler} />
     </div>
   );
 };

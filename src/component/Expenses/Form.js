@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 // import ExpenseDetails from "./ExpenseDetails";
 
-const Form = () => {
+const Form = (props) => {
   const [title, setTitle] = useState("");
   const [amount, setAmount] = useState("");
   const [location, setLocation] = useState("");
@@ -20,20 +20,24 @@ const Form = () => {
       location:location,
       date:new Date()
     }
-    console.log(expenseData)
+    console.log(expenseData) 
+   setAmount('')
+   setLocation('')
+   setTitle('')
    
-   
+   props.onaddExpense(expenseData)
+  
   };
 
   return (
     <div>
       <h1>Add a new Expense</h1>
-      Title <input type="text" placeholder="Title" onChange={titlehandler} />
+      Title <input type="text" placeholder="Title" value={title} onChange={titlehandler} />
       <br></br>
-      Amount{" "}
-      <input type="number" placeholder="Amount" onChange={Amounthandler} />
+      Amount
+      <input type="number" placeholder="Amount" value={amount} onChange={Amounthandler} />
       <br></br>
-      Location <input placeholder="Location" onChange={locationhandler} />
+      Location <input placeholder="Location" value={location} onChange={locationhandler} />
       <br></br>
       <button onClick={makechange}>Submit</button>
     </div>
