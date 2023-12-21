@@ -2,32 +2,28 @@ import React, { useState } from "react";
 // import ExpenseDetails from "./ExpenseDetails";
 
 const Form = () => {
-  // let [title, setTitle] = useState("");
-  // let [amount, setAmount] = useState("");
-  // let [location, setLocation] = useState("");
+  const [title, setTitle] = useState("");
+  const [amount, setAmount] = useState("");
+  const [location, setLocation] = useState("");
 
-  //   let title,amount,location;
-  const[userInput,setUserInput]=useState({
-    entredTitle:"",
-    entredAmount:"",
-    entredLocation:""
-  })
+  const titlehandler = (e) => (setTitle( e.target.value));
 
-  
- 
-  const titlehandler = (e) => setUserInput({...userInput,entredTitle:e.target.value});
+  const locationhandler = (e) => (setLocation(e.target.value));
 
-  const locationhandler = (e) => setUserInput({...userInput,entredLocation:e.target.value});
+  const Amounthandler = (e) => (setAmount(e.target.value));
 
-  const Amounthandler = (e) => setUserInput({...userInput,entredAmount:e.target.value});
-
-  // const makechange = () => {
-  //   console.log( entredTitle,
-  //   entredAmount,
-  //   entredLocation);
+  const makechange = () => {
     
+    const expenseData={
+      title:title,
+      amount:amount,
+      location:location,
+      date:new Date()
+    }
+    console.log(expenseData)
    
-  // };
+   
+  };
 
   return (
     <div>
@@ -39,7 +35,7 @@ const Form = () => {
       <br></br>
       Location <input placeholder="Location" onChange={locationhandler} />
       <br></br>
-      {/* <button onClick={makechange}>Submit</button> */}
+      <button onClick={makechange}>Submit</button>
     </div>
   );
 };
