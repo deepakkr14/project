@@ -1,36 +1,33 @@
 import React, { useState } from "react";
-import ExpenseDetails from "./ExpenseDetails";
+// import ExpenseDetails from "./ExpenseDetails";
 
 const Form = () => {
-  let [title, setTitle] = useState("");
-  let [amount, setAmount] = useState("");
-  let [location, setLocation] = useState("");
+  // let [title, setTitle] = useState("");
+  // let [amount, setAmount] = useState("");
+  // let [location, setLocation] = useState("");
 
   //   let title,amount,location;
-  let date = new Date(2023, 12, 15);
-  //   let location = "lkjjh";
-  const titlehandler = (e) => (title = e.target.value);
+  const[userInput,setUserInput]=useState({
+    entredTitle:"",
+    entredAmount:"",
+    entredLocation:""
+  })
 
-  const locationhandler = (e) => (location = e.target.value);
+  
+ 
+  const titlehandler = (e) => setUserInput({...userInput,entredTitle:e.target.value});
 
-  const Amounthandler = (e) => (amount = e.target.value);
+  const locationhandler = (e) => setUserInput({...userInput,entredLocation:e.target.value});
 
-  const makechange = () => {
-    console.log(`${title}, ${amount}, ${location}`);
-    setAmount(amount);
-    setLocation(location);
-    setTitle(title);
-    return (
-      <div>
-        <ExpenseDetails
-          amount={amount}
-          location={location}
-          title={title}
-          date={date}
-        />
-      </div>
-    );
-  };
+  const Amounthandler = (e) => setUserInput({...userInput,entredAmount:e.target.value});
+
+  // const makechange = () => {
+  //   console.log( entredTitle,
+  //   entredAmount,
+  //   entredLocation);
+    
+   
+  // };
 
   return (
     <div>
@@ -42,7 +39,7 @@ const Form = () => {
       <br></br>
       Location <input placeholder="Location" onChange={locationhandler} />
       <br></br>
-      <button onClick={makechange}>Submit</button>
+      {/* <button onClick={makechange}>Submit</button> */}
     </div>
   );
 };
