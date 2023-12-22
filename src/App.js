@@ -5,6 +5,7 @@ import ExpenseDetails from "./component/Expenses/ExpenseDetails";
 import Form from "./component/Expenses/Form";
 import ExpensesFilter from "./component/Expenses/ExpensesFilter";
 import { useState } from "react";
+import ExpensesChart from './component/Expenses/ExpenseChart';
 const dummy = [
   {
     id: "a1",
@@ -64,7 +65,7 @@ const App = () => {
     ));
   }
 
-  
+
   const [viewform, setForm] = useState(false);
   const buttonSwitch = () => {
     setForm(true);
@@ -78,9 +79,9 @@ const cancelFormHandler=(value)=>{
         selected={filteredYear}
         onChangeFilter={filterChangeHandler}
       />
-      {/* {filteredData.length===0?(<p>no data available</p>):()} */}
+     <ExpensesChart expenses={filteredData} />
       {expensesContent}
-      <button onClick={buttonSwitch}>add new </button>
+     {!viewform && <button onClick={buttonSwitch}>add new </button>}
       {viewform && <Form onaddExpense={addExpenseHandler} cancel={cancelFormHandler} />}
     </div>
   );
