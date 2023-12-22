@@ -5,6 +5,7 @@ const Form = (props) => {
   const [title, setTitle] = useState("");
   const [amount, setAmount] = useState("");
   const [location, setLocation] = useState("");
+  let id=0
 
   const titlehandler = (e) => (setTitle( e.target.value));
 
@@ -13,8 +14,9 @@ const Form = (props) => {
   const Amounthandler = (e) => (setAmount(e.target.value));
 
   const makechange = () => {
-    
+    id++;
     const expenseData={
+      id:id,
       title:title,
       amount:amount,
       location:location,

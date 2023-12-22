@@ -1,7 +1,7 @@
 import React,{ useState } from 'react'
 import "./Expensecss.css";
 import ExpenseDate from "./ExpenseDate";
-import ExpensesFilter from './ExpensesFilter';
+
 // import Form from './Form'
 
 function ExpenseItem(expense) {
@@ -11,14 +11,10 @@ function ExpenseItem(expense) {
    console.log('updated')
    
   }
-  const [filteredYear, setFilteredYear] = useState('2020');
-
-  const filterChangeHandler = selectedYear => {
-    setFilteredYear(selectedYear);
-  };
+ 
   return (
     <div>
-       <ExpensesFilter selected={filteredYear} onChangeFilter={filterChangeHandler} />
+      
       <div className="expense-item-content">
         <ExpenseDate date={expense.date} />
       <div className="expense-item-content">   {expense.title}</div>
