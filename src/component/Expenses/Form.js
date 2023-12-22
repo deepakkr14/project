@@ -31,6 +31,9 @@ const Form = (props) => {
   
   };
 
+  const cancel=()=>{
+props.cancel(false)
+  }
   return (
     <div>
       <h1>Add a new Expense</h1>
@@ -41,6 +44,7 @@ const Form = (props) => {
       <br></br>
       Location <input placeholder="Location" value={location} onChange={locationhandler} />
       <br></br>
+      <button   onClick={cancel}>cancel</button>
       <button onClick={makechange}>Submit</button>
     </div>
   );
