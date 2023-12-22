@@ -6,13 +6,13 @@ import Form from "./component/Expenses/Form";
 import ExpensesFilter from "./component/Expenses/ExpensesFilter";
 import { useState } from "react";
 const dummy = [
-  { id:a1,
+  { id:'a1',
     date: new Date(2023, 12, 15),
     title: "Movies",
     amount: 200,
     location: "Delhi",
   },
-  {id:a2,
+  {id:'a2',
     date: new Date(2023, 12, 15),
     title: "Food",
     amount: 150,
@@ -41,8 +41,9 @@ setnew(previous=>{
         onChangeFilter={filterChangeHandler}
       />
       {expense.map((props) => (
-        <div className="expense-item">
+        <div className="expense-item" key={props.id}>
           <ExpenseDetails
+         
             amount={props.amount}
             location={props.location}
             title={props.title}
