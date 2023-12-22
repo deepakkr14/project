@@ -38,23 +38,21 @@ const App = () => {
     return data.date.getFullYear().toString() === filteredYear;
   });
 
-  let expensesContent=<h2>no data available</h2>;
-  if (filteredData.length ===1){
-    expensesContent= 
-    // <h4>Only single Expense here. Please add more...</h4>
-  (filteredData.map((props) => (
-    <div className="expense-item" key={props.id}>
-      <ExpenseDetails
-        amount={props.amount}
-        location={props.location}
-        title={props.title}
-        date={props.date}
-      />
-      <h4>Only single Expense here. Please add more...</h4>
-    </div>
-  )))}
-  else {
-    expensesContent=(filteredData.map((props) => (
+  let expensesContent = <h2>no data available</h2>;
+  if (filteredData.length === 1) {
+    expensesContent = filteredData.map((props) => (
+      <div className="expense-item" key={props.id}>
+        <ExpenseDetails
+          amount={props.amount}
+          location={props.location}
+          title={props.title}
+          date={props.date}
+        />
+        <h4>Only single Expense here. Please add more...</h4>
+      </div>
+    ));
+  } else {
+    expensesContent = filteredData.map((props) => (
       <div className="expense-item" key={props.id}>
         <ExpenseDetails
           amount={props.amount}
@@ -63,8 +61,17 @@ const App = () => {
           date={props.date}
         />
       </div>
-    )))
-    }
+    ));
+  }
+
+  
+  const [viewform, setForm] = useState(false);
+  const buttonSwitch = () => {
+    setForm(true);
+  };
+const cancelFormHandler=(value)=>{
+  setForm(value);
+}
   return (
     <div className="expenses-list">
       <ExpensesFilter
@@ -72,8 +79,9 @@ const App = () => {
         onChangeFilter={filterChangeHandler}
       />
       {/* {filteredData.length===0?(<p>no data available</p>):()} */}
-     {expensesContent}
-      <Form onaddExpense={addExpenseHandler} />
+      {expensesContent}
+      <button onClick={buttonSwitch}>add new </button>
+      {viewform && <Form onaddExpense={addExpenseHandler} cancel={cancelFormHandler} />}
     </div>
   );
 };
